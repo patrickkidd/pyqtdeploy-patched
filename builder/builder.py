@@ -605,7 +605,8 @@ int main(int argc, char **argv)
             src_path = os.path.join(part_root_dir, rel_resource_path)
             dst_path = self._get_abs_resource_path(rel_resource_path)
 
-            shutil.copy2(src_path, dst_path)
+            if src_path != dst_path:
+               shutil.copy2(src_path, dst_path)
 
             resources_contents.append(rel_resource_path)
 

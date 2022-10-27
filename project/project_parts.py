@@ -65,7 +65,7 @@ class QrcPackage():
                     key = node_name[:-3]
                     part = PythonModule()
                 else:
-                    key = parent_name + '/' + node.name
+                    key = parent_name.replace('.', '/') + '/' + node.name
                     part = DataFile(node.name)
 
                 parts[key] = part

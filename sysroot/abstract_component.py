@@ -362,8 +362,10 @@ class AbstractComponent(ABC):
 
         # Ignore if the source file doesn't exist.
         if not os.path.isfile(name):
+            self.warning(f"Source file {name} cannot be patched because it does not exist.")
             return
 
+        self.verbose(f"Patching source file {name}.")
         orig = name + '.orig'
         os.rename(name, orig)
 
